@@ -29,6 +29,6 @@ jobs:
 
       - name: 📤 Upload EXE
         uses: actions/upload-artifact@v3.1.2
-  with:
-    name: visa-gui-exe
-    path: dist/visa_gui.exe
+        with:
+          name: visa-gui-exe
+          path: dist/visa_gui.exe

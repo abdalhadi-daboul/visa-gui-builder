@@ -2,3 +2,5 @@ deepface==0.0.83
 opencv-python==4.9.0.80
 scipy==1.11.4
 tensorflow==2.15.0
+numpy==1.26.4
+pandas==1.5.3

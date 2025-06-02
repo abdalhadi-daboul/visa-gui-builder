@@ -30,7 +30,8 @@ def resource_path(relative_path):
     except Exception:
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
-
+    
+# Classification
 face_cascade = cv2.CascadeClassifier(resource_path("haarcascade_frontalface_default.xml"))
 
 def classify_images():

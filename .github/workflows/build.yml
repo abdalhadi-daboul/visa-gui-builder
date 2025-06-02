@@ -3,7 +3,7 @@ name: Build EXE
 on:
   push:
     branches: [main]
-  workflow_dispatch: # يسمح لك بتشغيل الـ workflow يدويًا من GitHub
+  workflow_dispatch:
 
 jobs:
   build-windows:

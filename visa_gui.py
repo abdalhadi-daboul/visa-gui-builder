@@ -24,8 +24,14 @@ for dir_path in [PASSPORTS_DIR, PERSONAL_DIR, VISA_DIR,
                  PEOPLE_DIR]:
     os.makedirs(dir_path, exist_ok=True)
 
-# Classification
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS  # When bundled by PyInstaller
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+face_cascade = cv2.CascadeClassifier(resource_path("haarcascade_frontalface_default.xml"))
 
 def classify_images():
     for filename in os.listdir(PASSPORTS_DIR):

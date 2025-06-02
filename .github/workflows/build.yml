@@ -1,8 +1,8 @@
-name: Build Windows EXE
+name: Build EXE for visa_gui
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -10,26 +10,26 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: 🧾 Checkout repo
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
 
-      - name: 📦 Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pyinstaller
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pip install -r requirements.txt
 
-      - name: ⚙️ Build EXE
-        run: |
-          pyinstaller --onefile --noconsole visa_gui.py
+    - name: Build exe with PyInstaller
+      run: |
+        pyinstaller --onefile visa_gui.py
 
-      - name: 📤 Upload EXE as Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: visa-gui-exe
-          path: dist/visa_gui.exe
+    - name: Upload EXE artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: visa_gui_exe
+        path: dist/visa_gui.exe

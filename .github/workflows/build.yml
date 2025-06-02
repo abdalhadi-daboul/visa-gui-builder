@@ -28,7 +28,7 @@ jobs:
           pyinstaller --onefile --add-data "haarcascade_frontalface_default.xml;." visa_gui.py
 
       - name: 📤 Upload EXE
-        uses: actions/upload-artifact@v3
-        with:
-          name: visa-gui-exe
-          path: dist/visa_gui.exe
+        uses: actions/upload-artifact@v3.1.2
+  with:
+    name: visa-gui-exe
+    path: dist/visa_gui.exe
